@@ -8,7 +8,9 @@ module.exports = {
   name: "WM Arquitetura & Design",
   shortName: "WM ArqDesign",
   slogan: "Design que integra arquitetura a você.",
-  founder: "Wesley", // arquiteto responsável — ajuste o nome/sobrenome como preferir
+  founder: "Wesley Martins",
+  founderFull: "Wesley Martins Dias da Silva",
+  registryNumber: "CAU A171170-9", // fonte: CV do profissional (registro SICCAU)
 
   // Domínio / SEO
   url: domain,
@@ -44,7 +46,7 @@ module.exports = {
   // e cole aqui. Enquanto for placeholder, o formulário exibe aviso de configuração.
   form: {
     provider: "web3forms",
-    accessKey: "<<COLE_SUA_ACCESS_KEY_WEB3FORMS>>",
+    accessKey: "18e1d989-c8e9-4c84-8897-9745df46b545",
     endpoint: "https://api.web3forms.com/submit",
     // Opcional: Cloudflare Turnstile (anti-spam). Deixe vazio para usar só honeypot.
     turnstileSiteKey: "",
