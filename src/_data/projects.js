@@ -177,6 +177,162 @@ const meta = {
     description:
       "Coleção de maquetes físicas produzidas ao longo da formação e da prática do escritório. Dos estudos de implantação de edifícios residenciais a equipamentos institucionais, as maquetes revelam o pensamento espacial, a relação com o entorno e o rigor construtivo que fundamentam cada projeto.",
   },
+
+  "apartamento-concreto-morumbi": {
+    order: 14,
+    featured: true,
+    title: "Apartamento Concreto & Preto — Morumbi",
+    category: "Residencial",
+    location: "Morumbi · São Paulo",
+    tags: ["Concreto", "Marcenaria preta", "Home office"],
+    summary:
+      "Apartamento sofisticado no Morumbi que combina textura de concreto e marcenaria preta em todos os ambientes.",
+    description:
+      "Um apartamento no Morumbi construído sobre o contraste entre a textura bruta do concreto e a marcenaria preta fosca, do living ao home office. Iluminação embutida, varanda integrada e um banheiro em tons esverdeados completam um projeto contemporâneo e sóbrio, pensado para quem valoriza materialidade e silêncio visual.",
+  },
+
+  "apartamento-petroleo-morumbi": {
+    order: 15,
+    featured: false,
+    title: "Apartamento Petróleo & Branco — Morumbi",
+    category: "Residencial",
+    location: "Morumbi · São Paulo",
+    tags: ["Azul petróleo", "Cozinha", "Varanda verde"],
+    summary:
+      "Apartamento no Morumbi com cozinha em azul petróleo e branco, e uma varanda transformada em cantinho verde.",
+    description:
+      "Projeto residencial no Morumbi que aposta no azul petróleo como cor de destaque da cozinha, equilibrado por marcenaria branca e bancada em mármore. Os dormitórios seguem a mesma paleta serena, enquanto a varanda ganha vida com uma curadoria de plantas que aproxima o apartamento da natureza.",
+  },
+
+  "loja-conveniencia-tatuape": {
+    order: 16,
+    featured: false,
+    title: "Loja de Conveniência — Tatuapé",
+    category: "Comercial",
+    location: "Tatuapé · São Paulo",
+    tags: ["Varejo", "Iluminação cênica", "Obra executada"],
+    summary:
+      "Projeto comercial para uma loja de conveniência no Tatuapé, do projeto executivo à obra concluída.",
+    description:
+      "Projeto comercial completo para uma loja de conveniência no Tatuapé — da concepção em render à obra executada. Prateleiras em madeira e preto fosco, iluminação cênica em LED verde e um balcão de atendimento amplo criam uma experiência de compra contemporânea, reforçada por elementos de identidade visual integrados à arquitetura.",
+  },
+
+  "apartamento-cantinho-tematico": {
+    order: 17,
+    featured: false,
+    title: "Apartamento com Cantinho Temático — Pirituba",
+    category: "Residencial",
+    location: "Pirituba · São Paulo",
+    tags: ["Cantinho temático", "Tons azuis", "Família"],
+    summary:
+      "Apartamento familiar em Pirituba com um cantinho de leitura temático e dormitório em tons de azul.",
+    description:
+      "Projeto residencial em Pirituba que reserva um canto especial da casa para um espaço de leitura e estudo temático, com mapa-múndi e detalhes que estimulam a curiosidade. O restante do apartamento segue uma paleta de azuis e madeira clara, unindo praticidade para o dia a dia da família e ambientes de estar aconchegantes.",
+  },
+
+  "apartamento-nogueira-morumbi": {
+    order: 18,
+    featured: false,
+    title: "Apartamento Nogueira & Grafite — Morumbi",
+    category: "Residencial",
+    location: "Morumbi · São Paulo",
+    tags: ["Nogueira", "Home office", "Closet"],
+    summary:
+      "Apartamento no Morumbi com marcenaria em nogueira e grafite, closet completo e home office com estantes vazadas.",
+    description:
+      "Um apartamento no Morumbi que investe na riqueza da madeira nogueira combinada a tons de grafite. O projeto inclui um closet completo, um home office com estantes vazadas e nichos para plantas, e ambientes sociais integrados que valorizam a luz natural e o conforto no dia a dia.",
+  },
+
+  "apartamento-espinha-peixe": {
+    order: 19,
+    featured: false,
+    title: "Apartamento Espinha-de-Peixe — Morumbi",
+    category: "Residencial",
+    location: "Morumbi · São Paulo",
+    tags: ["Piso espinha-de-peixe", "Home office", "Sala de jantar"],
+    summary:
+      "Apartamento no Morumbi com piso em espinha-de-peixe e um home office com parede verde de destaque.",
+    description:
+      "Projeto residencial no Morumbi que tem no piso em espinha-de-peixe um dos elementos de assinatura, presente da lavanderia ao closet. Um home office com parede verde e mesa-espelho traz personalidade ao ambiente de trabalho, enquanto a sala de jantar e o living reforçam a proposta contemporânea do apartamento.",
+  },
+
+  "studio-compacto-rj": {
+    order: 20,
+    featured: true,
+    title: "Studio Compacto — Rio de Janeiro",
+    category: "Residencial",
+    location: "Rio de Janeiro · RJ",
+    tags: ["Studio", "Vista para o mar", "Obra executada"],
+    summary:
+      "Studio compacto no Rio de Janeiro com vista para o mar, do render à obra — parede terracota e marcenaria em madeira.",
+    description:
+      "Studio compacto no Rio de Janeiro que aproveita a vista para o mar como protagonista do projeto. Uma parede em terracota marca o dormitório, enquanto uma estante vazada separa os ambientes sem fechar a vista. O banheiro em mármore e a cozinha integrada completam um projeto enxuto e sofisticado, aqui mostrado do render à obra concluída.",
+  },
+
+  "apartamento-tijolinho-morumbi": {
+    order: 21,
+    featured: false,
+    title: "Apartamento Tijolinho & Madeira — Morumbi",
+    category: "Residencial",
+    location: "Morumbi · São Paulo",
+    tags: ["Tijolinho aparente", "Madeira", "Home office"],
+    summary:
+      "Apartamento no Morumbi que combina parede de tijolinho aparente com marcenaria em madeira clara.",
+    description:
+      "Projeto residencial no Morumbi que usa a parede de tijolinho aparente como pano de fundo para a marcenaria em madeira clara e bancadas em preto fosco. Cozinha, dormitório, home office e living seguem a mesma linguagem, criando um apartamento coeso, aconchegante e com identidade própria.",
+  },
+
+  "bar-pub-pirituba": {
+    order: 22,
+    featured: false,
+    title: "Bar & Pub — Pirituba",
+    category: "Comercial",
+    location: "Pirituba · São Paulo",
+    tags: ["Gastronomia", "Iluminação cênica", "Identidade visual"],
+    summary:
+      "Projeto comercial para um bar e pub em Pirituba, com marcenaria em madeira, verde profundo e detalhes em amarelo.",
+    description:
+      "Projeto comercial para um bar e pub em Pirituba, com uma linguagem que combina madeira, verde profundo e detalhes em amarelo para criar uma atmosfera acolhedora e vibrante. O balcão central, o palco para apresentações e o salão de mesas foram planejados para o fluxo de um ambiente de gastronomia e entretenimento, incluindo banheiros com identidade visual marcante.",
+  },
+
+  "area-gourmet-antes-depois": {
+    order: 23,
+    featured: false,
+    title: "Área Gourmet — Antes & Depois",
+    category: "Cozinhas",
+    location: "Campo Limpo · São Paulo",
+    tags: ["Antes e depois", "Área gourmet", "Marcenaria"],
+    summary:
+      "A transformação de um espaço bruto em uma área gourmet completa, com marcenaria em grafite e bancada em mármore.",
+    description:
+      "Um retrato direto do trabalho da WM: de um espaço bruto, ainda em obra, a uma área gourmet completa, com marcenaria em grafite, bancada em mármore e refrigerador integrado. Um exemplo de como o projeto certo transforma um cômodo vazio em um ambiente pronto para receber e reunir pessoas.",
+  },
+
+  "otica-campo-limpo": {
+    order: 24,
+    featured: false,
+    title: "Ótica — Campo Limpo",
+    category: "Comercial",
+    location: "Campo Limpo · São Paulo",
+    tags: ["Varejo", "Vitrine", "Marcenaria em madeira"],
+    summary:
+      "Projeto comercial para uma ótica no Campo Limpo, com vitrines em madeira e mármore.",
+    description:
+      "Projeto comercial para uma loja de óticas no Campo Limpo, com vitrines em madeira que valorizam a exposição dos produtos, complementadas por acabamentos em mármore e iluminação direcionada. Um espaço de atendimento planejado para transmitir confiança e cuidado com o cliente desde a entrada.",
+  },
+
+  "studio-nautico-morumbi": {
+    order: 25,
+    featured: false,
+    title: "Studio Náutico — Morumbi",
+    category: "Residencial",
+    location: "Morumbi · São Paulo",
+    tags: ["Studio", "Tema náutico", "Compacto"],
+    summary:
+      "Studio compacto no Morumbi com decoração de inspiração náutica e ambientes multifuncionais.",
+    description:
+      "Studio compacto no Morumbi planejado para aproveitar cada metro quadrado, com decoração de inspiração náutica que traz identidade ao espaço. Cozinha integrada, dormitório com marcenaria sob medida e banheiro completo mostram como um apartamento pequeno pode ser ao mesmo tempo funcional e cheio de personalidade.",
+  },
 };
 
 module.exports = () => {
