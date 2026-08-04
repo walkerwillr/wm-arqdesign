@@ -1,0 +1,114 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: projects
+  size: 1
+  alias: project
+  addAllPagesToCollections: true
+permalink: "/projeto/{{ project.slug }}/"
+eleventyComputed:
+  title: "{{ project.title }}"
+  description: "{{ project.summary }}"
+  ogImage: "/assets/img/og.jpg"
+---
+
+{% set prev = (projects | where("order", project.order - 1))[0] %}
+{% set next = (projects | where("order", project.order + 1))[0] %}
+
+<article>
+  <!-- Cabeçalho do projeto -->
+  <section class="page-hero">
+    <div class="container">
+      <p style="margin-bottom: 1rem">
+        <a href="/portfolio/" class="link-underline" style="font-size: 0.85rem"
+          >← Voltar ao portfólio</a
+        >
+      </p>
+      <span class="eyebrow">{{ project.category }}</span>
+      <h1>{{ project.title }}</h1>
+      <p class="lead page-hero__lead">{{ project.description }}</p>
+
+      <div class="project-detail__meta">
+        <span><strong>Categoria:</strong> {{ project.category }}</span>
+        <span><strong>Local:</strong> {{ project.location }}</span>
+        <span><strong>Imagens:</strong> {{ project.imageCount }}</span>
+      </div>
+
+      <div class="tag-row">
+        {% for t in project.tags %}<span class="tag">{{ t }}</span>{% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- Galeria -->
+  <section class="section" style="padding-top: clamp(1.5rem, 4vw, 3rem)">
+    <div class="container">
+      <div class="gallery" id="gallery">
+        {% for img in project.images %}
+          {% set isWide = (loop.index0 % 5 == 0) %}
+          <figure
+            class="gallery__item reveal{% if isWide %} is-wide{% endif %}"
+            data-index="{{ loop.index0 }}"
+            role="button"
+            tabindex="0"
+            aria-label="Ampliar imagem {{ loop.index }} de {{ project.imageCount }}"
+          >
+            {% if isWide %}
+              {% image img.input, img.alt, "(min-width: 760px) 66vw, 100vw" %}
+            {% else %}
+              {% image img.input, img.alt, "(min-width: 760px) 33vw, 100vw" %}
+            {% endif %}
+          </figure>
+        {% endfor %}
+      </div>
+
+      <!-- CTA de contato -->
+      <div
+        class="band"
+        style="margin-top: clamp(3rem, 6vw, 5rem); border-radius: var(--radius); padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter); text-align: center"
+      >
+        <span class="eyebrow">Gostou deste projeto?</span>
+        <h2 style="margin: 1rem auto 1rem; max-width: 24ch">
+          Vamos criar algo assim para o seu espaço.
+        </h2>
+        <div class="hero__actions" style="justify-content: center">
+          <a href="/contato/" class="btn btn--light">Solicitar orçamento</a>
+          <a
+            href="https://wa.me/{{ site.whatsapp.number }}?text={{ ('Olá! Vi o projeto ' + project.title + ' no site e gostaria de conversar.') | urlencode }}"
+            class="btn btn--light"
+            target="_blank"
+            rel="noopener"
+            >Chamar no WhatsApp</a
+          >
+        </div>
+      </div>
+
+      <!-- Navegação entre projetos -->
+      <nav class="project-nav" aria-label="Navegação entre projetos">
+        {% if prev %}<a class="prev" href="{{ prev.url }}">{{ prev.title }}</a>{% else %}<span></span>{% endif %}
+        {% if next %}<a class="next" href="{{ next.url }}">{{ next.title }}</a>{% else %}<span></span>{% endif %}
+      </nav>
+    </div>
+  </section>
+</article>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visualização ampliada">
+  <button class="lightbox__btn lightbox__close" id="lb-close" aria-label="Fechar">×</button>
+  <button class="lightbox__btn lightbox__prev" id="lb-prev" aria-label="Imagem anterior">‹</button>
+  <img id="lb-img" src="" alt="" />
+  <button class="lightbox__btn lightbox__next" id="lb-next" aria-label="Próxima imagem">›</button>
+  <span class="lightbox__count" id="lb-count"></span>
+</div>
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "{{ project.title | safe }}",
+    "about": "{{ project.category }}",
+    "description": "{{ project.summary | safe }}",
+    "creator": { "@type": "Organization", "name": "{{ site.name | safe }}" },
+    "url": "{{ site.url }}{{ project.url }}"
+  }
+</script>

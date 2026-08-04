@@ -1,0 +1,109 @@
+---
+layout: layouts/base.njk
+permalink: /sobre/
+title: "Sobre"
+description: "Conheça a WM Arquitetura & Design: abordagem, método de trabalho e a filosofia por trás de projetos residenciais e comerciais em São Paulo e Rio de Janeiro."
+---
+
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Sobre o escritório</span>
+    <h1>Arquitetura que começa pela escuta.</h1>
+    <p class="lead page-hero__lead">
+      A WM Arquitetura & Design nasceu da convicção de que um bom projeto não
+      impõe um estilo — ele revela o jeito de viver de quem o habita.
+    </p>
+  </div>
+</section>
+
+<section class="section" style="padding-top: clamp(1.5rem, 4vw, 3rem)">
+  <div class="container">
+    <div class="split">
+      <div class="split__media reveal">
+        {% image "src/assets/projects/apartamento-integrado/01.jpg",
+          "Ambiente integrado com painel ripado em madeira, projeto WM Arquitetura & Design",
+          "(min-width: 900px) 46vw, 92vw" %}
+      </div>
+      <div class="stack">
+        <!-- >> SUBSTITUA por seu texto pessoal quando desejar (placeholder editorial) << -->
+        <span class="eyebrow">O profissional</span>
+        <h2>{{ site.founder }}, à frente da WM.</h2>
+        <p>
+          Com atuação em arquitetura, interiores e paisagismo, o escritório
+          conduz projetos do conceito à obra, cuidando de cada detalhe — da
+          marcenaria sob medida à iluminação, dos acabamentos às soluções
+          técnicas que sustentam o resultado final.
+        </p>
+        <p>
+          O trabalho percorre residências, apartamentos compactos, cozinhas,
+          espaços comerciais e áreas externas, sempre com a mesma busca por
+          ambientes atemporais, funcionais e cheios de personalidade.
+        </p>
+        <p style="color: var(--muted); font-size: 0.85rem">
+          <em>Este é um texto provisório — envie sua biografia para personalizarmos esta seção.</em>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section band">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Método</span>
+      <h2>Um processo claro, do briefing à obra.</h2>
+      <p class="lead" style="color: rgba(255,255,255,0.75)">
+        Transparência em cada etapa para que você acompanhe o projeto ganhar forma.
+      </p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step__n">01</div>
+        <h3>Briefing</h3>
+        <p>Conversa inicial para entender necessidades, referências, rotina e orçamento.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step__n">02</div>
+        <h3>Projeto</h3>
+        <p>Estudo de layout, plantas e renders realistas para aprovar cada ambiente.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step__n">03</div>
+        <h3>Executivo</h3>
+        <p>Detalhamento técnico completo: marcenaria, elétrica, iluminação e acabamentos.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step__n">04</div>
+        <h3>Obra</h3>
+        <p>Acompanhamento e compatibilização para uma execução fiel ao projeto.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Áreas de atuação</span>
+      <h2>O que projetamos</h2>
+    </div>
+    <div class="steps" style="counter-reset: none">
+      {% for area in [
+        { t: "Residencial", d: "Casas e apartamentos completos ou por ambiente." },
+        { t: "Cozinhas", d: "Projetos e marcenaria planejada sob medida." },
+        { t: "Comercial", d: "Escritórios, clínicas e espaços de convivência." },
+        { t: "Paisagismo", d: "Áreas externas, jardins e integração com a arquitetura." },
+        { t: "Interiores", d: "Curadoria de materiais, cores e iluminação." },
+        { t: "Consultoria", d: "Orientação pontual para decisões de projeto e reforma." }
+      ] %}
+        <div class="step reveal">
+          <h3 style="margin-top: 0">{{ area.t }}</h3>
+          <p>{{ area.d }}</p>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="center" style="margin-top: 3rem">
+      <a href="/contato/" class="btn btn--primary">Falar sobre meu projeto</a>
+    </div>
+  </div>
+</section>

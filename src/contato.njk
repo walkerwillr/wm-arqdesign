@@ -1,0 +1,156 @@
+---
+layout: layouts/base.njk
+permalink: /contato/
+title: "Contato"
+description: "Fale com a WM Arquitetura & Design. Solicite um orçamento pelo formulário, WhatsApp, telefone ou e-mail. Atendimento em São Paulo e Rio de Janeiro."
+---
+
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Contato</span>
+    <h1>Vamos conversar sobre o seu projeto.</h1>
+    <p class="lead page-hero__lead">
+      Preencha o formulário ou fale por um dos canais diretos. Respondemos o mais
+      breve possível.
+    </p>
+  </div>
+</section>
+
+<section class="section" style="padding-top: clamp(1rem, 3vw, 2rem)">
+  <div class="container">
+    <div class="contact-grid">
+      <!-- Canais diretos -->
+      <div>
+        <h2 style="font-size: clamp(1.5rem, 2.5vw, 2rem)">Canais diretos</h2>
+        <p style="margin: 0.75rem 0 1.75rem">
+          Atuação em {{ site.regionsLabel }}.
+        </p>
+        <div class="contact-channels">
+          <a
+            class="channel"
+            href="https://wa.me/{{ site.whatsapp.number }}?text={{ site.whatsapp.message | urlencode }}"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="channel__icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 4a12 12 0 0 0-10.3 18.1L4 28l6-1.6A12 12 0 1 0 16 4Zm5.9 16.6c-.25.7-1.45 1.36-2 1.4-.53.05-1.02.24-3.4-.72-2.88-1.16-4.7-4.1-4.84-4.3-.14-.19-1.15-1.53-1.15-2.92 0-1.4.72-2.08 .98-2.36.25-.28.55-.35.73-.35h.53c.17 0 .4-.06.62.48.25.6.83 2.06.9 2.2.07.14.12.31.02.5-.09.19-.14.31-.28.48l-.42.49c-.14.14-.29.29-.12.57.16.28.73 1.2 1.56 1.95 1.07.95 1.97 1.25 2.25 1.39.28.14.44.12.6-.07.17-.19.7-.81.88-1.09.18-.28.37-.23.62-.14.25.09 1.6.76 1.87.9.28.14.46.21.53.32.07.12.07.66-.18 1.36Z"/></svg>
+            </span>
+            <span>
+              <span class="channel__label">WhatsApp</span><br />
+              <span class="channel__value">{{ site.whatsapp.display }}</span>
+            </span>
+          </a>
+
+          <a class="channel" href="tel:{{ site.phone.tel }}">
+            <span class="channel__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.5a16 16 0 0 0 6 6l1.1-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg>
+            </span>
+            <span>
+              <span class="channel__label">Telefone</span><br />
+              <span class="channel__value">{{ site.phone.display }}</span>
+            </span>
+          </a>
+
+          <a class="channel" href="mailto:{{ site.email }}">
+            <span class="channel__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            </span>
+            <span>
+              <span class="channel__label">E-mail</span><br />
+              <span class="channel__value">{{ site.email }}</span>
+            </span>
+          </a>
+
+          <a class="channel" href="{{ site.instagram.url }}" target="_blank" rel="noopener">
+            <span class="channel__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            </span>
+            <span>
+              <span class="channel__label">Instagram</span><br />
+              <span class="channel__value">{{ site.instagram.handle }}</span>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Formulário -->
+      <div>
+        <h2 style="font-size: clamp(1.5rem, 2.5vw, 2rem)">Solicitar orçamento</h2>
+        <p style="margin: 0.75rem 0 1.75rem">
+          Conte um pouco sobre o que você imagina. Campos com
+          <span style="color: var(--accent)">*</span> são obrigatórios.
+        </p>
+
+        <form
+          id="contact-form"
+          method="POST"
+          action="{{ site.form.endpoint }}"
+          data-access-key="{{ site.form.accessKey }}"
+          novalidate
+        >
+          <input type="hidden" name="access_key" value="{{ site.form.accessKey }}" />
+          <input type="hidden" name="subject" value="Novo contato pelo site — {{ site.shortName }}" />
+          <input type="hidden" name="from_name" value="{{ site.name }}" />
+
+          <!-- honeypot anti-spam -->
+          <div class="hp-field" aria-hidden="true">
+            <label>Não preencha este campo
+              <input type="text" name="botcheck" tabindex="-1" autocomplete="off" />
+            </label>
+          </div>
+
+          <div class="form-field">
+            <label for="nome">Nome <span class="req">*</span></label>
+            <input type="text" id="nome" name="nome" required autocomplete="name" />
+          </div>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label for="email">E-mail <span class="req">*</span></label>
+              <input type="email" id="email" name="email" required autocomplete="email" />
+            </div>
+            <div class="form-field">
+              <label for="telefone">Telefone / WhatsApp <span class="req">*</span></label>
+              <input type="tel" id="telefone" name="telefone" required autocomplete="tel" placeholder="(11) 90000-0000" />
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="tipo">Tipo de projeto</label>
+            <select id="tipo" name="tipo_de_projeto">
+              <option value="">Selecione…</option>
+              <option>Residencial completo</option>
+              <option>Interiores / por ambiente</option>
+              <option>Cozinha</option>
+              <option>Comercial</option>
+              <option>Paisagismo</option>
+              <option>Consultoria / outro</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="mensagem">Mensagem <span class="req">*</span></label>
+            <textarea id="mensagem" name="mensagem" required placeholder="Conte sobre o espaço, metragem aproximada, prazo e referências…"></textarea>
+          </div>
+
+          {% if site.form.turnstileSiteKey %}
+            <div class="cf-turnstile" data-sitekey="{{ site.form.turnstileSiteKey }}" style="margin-bottom: 1.25rem"></div>
+          {% endif %}
+
+          <button type="submit" class="btn btn--primary" id="form-submit">
+            Enviar mensagem
+          </button>
+
+          <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
+          <p class="form-note">
+            Seus dados são usados apenas para responder ao seu contato.
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% if site.form.turnstileSiteKey %}
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+{% endif %}

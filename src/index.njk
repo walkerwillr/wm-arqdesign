@@ -1,0 +1,150 @@
+---
+layout: layouts/base.njk
+permalink: /
+heroPage: true
+description: "WM Arquitetura & Design — projetos residenciais, comerciais, cozinhas e paisagismo em São Paulo e Rio de Janeiro. Design que integra arquitetura a você."
+---
+
+{% set featured = projects | where("featured", true) %}
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero__media">
+    {% image "src/assets/projects/apartamento-industrial-taboao/01.jpg",
+      "Living de apartamento com estética industrial moderna projetado pela WM Arquitetura & Design",
+      "100vw", "", "eager", "high" %}
+  </div>
+  <div class="container">
+    <div class="hero__inner">
+      <span class="eyebrow">Arquitetura & Design de Interiores</span>
+      <h1 class="hero__title h-display">Design que integra<br />arquitetura a você.</h1>
+      <p class="hero__lead">
+        Projetos residenciais e comerciais que traduzem a forma de viver de cada
+        cliente — do briefing à obra, em {{ site.regionsLabel }}.
+      </p>
+      <div class="hero__actions">
+        <a href="/portfolio/" class="btn btn--light">Ver portfólio</a>
+        <a href="/contato/" class="btn btn--light">Iniciar um projeto</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero__scroll" aria-hidden="true"><span>Role</span></div>
+</section>
+
+<!-- INTRO -->
+<section class="section section--tight">
+  <div class="container">
+    <div class="split split--media-right">
+      <div class="stack">
+        <span class="eyebrow">O escritório</span>
+        <h2>Ambientes pensados para serem vividos.</h2>
+        <p class="lead">
+          A WM Arquitetura & Design desenvolve projetos de arquitetura, interiores
+          e paisagismo com um princípio constante: unir estética, funcionalidade e
+          conforto de forma atemporal. Cada espaço nasce da escuta atenta ao
+          cliente e amadurece com marcenaria planejada, iluminação cuidadosa e
+          materiais que envelhecem bem.
+        </p>
+        <p>
+          <a href="/sobre/" class="link-underline">Conheça a abordagem</a>
+        </p>
+      </div>
+      <div class="split__media reveal">
+        {% image "src/assets/projects/residencia-granja-viana/01.jpg",
+          "Suíte com marcenaria em madeira e iluminação indireta",
+          "(min-width: 900px) 46vw, 92vw" %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DESTAQUES -->
+<section class="section" style="padding-top: 0">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Seleção de projetos</span>
+      <h2>Trabalhos em destaque</h2>
+    </div>
+    <div class="project-grid project-grid--featured">
+      {% for card in featured %}
+        <article class="project-card reveal" data-category="{{ card.category }}">
+          <div class="project-card__media">
+            <span class="project-card__cat">{{ card.category }}</span>
+            {% if loop.first %}
+              {% image card.cover.input, card.cover.alt, "(min-width: 760px) 64vw, 92vw" %}
+            {% else %}
+              {% image card.cover.input, card.cover.alt, "(min-width: 760px) 32vw, (min-width: 480px) 45vw, 92vw" %}
+            {% endif %}
+          </div>
+          <div class="project-card__body">
+            <h3 class="project-card__title">{{ card.title }}</h3>
+            <div class="project-card__meta">
+              <span>{{ card.location }}</span>
+              <span aria-hidden="true">·</span>
+              <span>{{ card.imageCount }} imagens</span>
+            </div>
+            {% if loop.first %}<p class="project-card__summary">{{ card.summary }}</p>{% endif %}
+          </div>
+          <a class="project-card__link" href="{{ card.url }}" aria-label="Ver projeto: {{ card.title }}"></a>
+        </article>
+      {% endfor %}
+    </div>
+    <div class="center" style="margin-top: clamp(2.5rem, 5vw, 4rem)">
+      <a href="/portfolio/" class="btn btn--ghost">Ver todos os projetos</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABORDAGEM -->
+<section class="section band">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Como trabalhamos</span>
+      <h2>Do primeiro encontro à entrega das chaves.</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step__n">01</div>
+        <h3>Briefing</h3>
+        <p>Entendimento profundo do estilo de vida, das necessidades e do orçamento antes de qualquer traço.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step__n">02</div>
+        <h3>Projeto</h3>
+        <p>Estudos, plantas e renders realistas para visualizar cada ambiente antes da execução.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step__n">03</div>
+        <h3>Executivo</h3>
+        <p>Detalhamento técnico, marcenaria e especificações que garantem fidelidade ao projeto.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step__n">04</div>
+        <h3>Obra</h3>
+        <p>Acompanhamento da execução para que o resultado final reflita exatamente o que foi imaginado.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section">
+  <div class="container center stack" style="max-width: 46rem">
+    <span class="eyebrow">Vamos começar?</span>
+    <h2>Seu próximo ambiente começa com uma conversa.</h2>
+    <p class="lead center">
+      Conte sua ideia e receba uma proposta pensada para o seu espaço, seu tempo
+      e seu investimento.
+    </p>
+    <div class="hero__actions" style="justify-content: center; margin-top: 1.5rem">
+      <a href="/contato/" class="btn btn--primary">Solicitar orçamento</a>
+      <a
+        href="https://wa.me/{{ site.whatsapp.number }}?text={{ site.whatsapp.message | urlencode }}"
+        class="btn btn--ghost"
+        target="_blank"
+        rel="noopener"
+        >Chamar no WhatsApp</a
+      >
+    </div>
+  </div>
+</section>

@@ -1,0 +1,63 @@
+---
+layout: layouts/base.njk
+permalink: /portfolio/
+title: "Portfólio"
+description: "Portfólio de projetos de arquitetura e design de interiores da WM: residenciais, comerciais, cozinhas, paisagismo e maquetes em São Paulo e Rio de Janeiro."
+---
+
+{% set categories = projects | getCategories %}
+
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Portfólio</span>
+    <h1>Projetos que traduzem quem os habita.</h1>
+    <p class="lead page-hero__lead">
+      Uma seleção de trabalhos em arquitetura, interiores e paisagismo. Use os
+      filtros para navegar por categoria.
+    </p>
+  </div>
+</section>
+
+<section class="section" style="padding-top: 0">
+  <div class="container">
+    <div class="filters" role="group" aria-label="Filtrar projetos por categoria">
+      <button class="filter-btn is-active" data-filter="all" aria-pressed="true">
+        Todos
+      </button>
+      {% for cat in categories %}
+        <button class="filter-btn" data-filter="{{ cat }}" aria-pressed="false">
+          {{ cat }}
+        </button>
+      {% endfor %}
+    </div>
+
+    <div class="project-grid" id="portfolio-grid">
+      {% for card in projects %}
+        <article class="project-card reveal" data-category="{{ card.category }}">
+          <div class="project-card__media">
+            <span class="project-card__cat">{{ card.category }}</span>
+            {% image card.cover.input, card.cover.alt, "(min-width: 1100px) 30vw, (min-width: 600px) 45vw, 92vw" %}
+          </div>
+          <div class="project-card__body">
+            <h3 class="project-card__title">{{ card.title }}</h3>
+            <div class="project-card__meta">
+              <span>{{ card.location }}</span>
+              <span aria-hidden="true">·</span>
+              <span>{{ card.imageCount }} imagens</span>
+            </div>
+            <p class="project-card__summary">{{ card.summary }}</p>
+          </div>
+          <a class="project-card__link" href="{{ card.url }}" aria-label="Ver projeto: {{ card.title }}"></a>
+        </article>
+      {% endfor %}
+    </div>
+
+    <p
+      class="center"
+      id="filter-empty"
+      style="display: none; margin-top: 3rem; color: var(--muted)"
+    >
+      Nenhum projeto nesta categoria por enquanto.
+    </p>
+  </div>
+</section>
