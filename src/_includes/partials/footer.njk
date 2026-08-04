@@ -4,8 +4,11 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="/" class="brand" aria-label="{{ site.name }}">
-          <span class="brand__mark">WM</span>
-          <span class="brand__sub">Arquitetura&nbsp;&amp;&nbsp;Design</span>
+          {% include "partials/logo-mark.njk" %}
+          <span class="brand__text">
+            <span class="brand__word"><strong>WM</strong>&nbsp;ArqDesign</span>
+            <span class="brand__sub">Arquitetura&nbsp;&amp;&nbsp;Design</span>
+          </span>
         </a>
         <p style="max-width: 30ch">{{ site.slogan }}</p>
         <p style="margin-top: 1rem; font-size: 0.85rem">

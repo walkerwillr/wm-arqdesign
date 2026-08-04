@@ -49,13 +49,15 @@
   --ink-soft: #4a4741;
   --muted: #8a857c;
   --line: #e2ddd4;
-  --accent: #9a7b53; /* bronze discreto */
-  --accent-deep: #7d6340;
+  --accent: #229b50; /* verde da marca WM ArqDesign */
+  --accent-deep: #16793e; /* variante escura, contraste AA em texto */
   --dark: #1c1b19;
   --dark-soft: #2a2824;
 
   --font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
   --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-logo: "Yu Gothic", "Yu Gothic UI", "YuGothic", "Hiragino Kaku Gothic ProN",
+    "Noto Sans JP", var(--font-body);
 
   --container: 1280px;
   --gutter: clamp(1.25rem, 4vw, 3rem);
@@ -273,28 +275,42 @@ p {
 }
 .brand {
   display: flex;
-  align-items: baseline;
-  gap: 0.55rem;
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
+  align-items: center;
+  gap: 0.65rem;
   color: var(--ink);
 }
-.brand__mark {
-  font-weight: 600;
-  letter-spacing: 0.08em;
+.brand__icon {
+  width: 34px;
+  height: auto;
+  flex: none;
+  color: var(--ink); /* traço preto acompanha via currentColor */
+  transition: color 0.4s var(--ease);
+}
+.brand__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  line-height: 1.1;
+}
+.brand__word {
+  font-family: var(--font-logo);
+  font-size: 1.2rem;
+  letter-spacing: 0.01em;
+}
+.brand__word strong {
+  font-weight: 700;
 }
 .brand__sub {
   font-family: var(--font-body);
-  font-size: 0.62rem;
+  font-size: 0.6rem;
   font-weight: 600;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--muted);
 }
 /* header claro sobre hero escuro */
 .site-header:not(.is-solid):not(.is-open).over-hero .brand,
+.site-header:not(.is-solid):not(.is-open).over-hero .brand__icon,
 .site-header:not(.is-solid):not(.is-open).over-hero .nav__link,
 .site-header:not(.is-solid):not(.is-open).over-hero .nav-toggle {
   color: #fff;
@@ -406,6 +422,11 @@ p {
   position: absolute;
   inset: 0;
   z-index: -2;
+}
+.hero__media picture {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 .hero__media img {
   width: 100%;
@@ -520,6 +541,11 @@ p {
   border-radius: var(--radius);
   background: var(--bg-alt);
   aspect-ratio: 4 / 5;
+}
+.project-card__media picture {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 .project-card__media img {
   width: 100%;
@@ -740,6 +766,11 @@ p {
   cursor: zoom-in;
   aspect-ratio: 3 / 2;
 }
+.gallery__item picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
 .gallery__item img {
   width: 100%;
   height: 100%;
@@ -880,7 +911,7 @@ p {
 .form-field select:focus {
   outline: none;
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(154, 123, 83, 0.16);
+  box-shadow: 0 0 0 3px rgba(34, 155, 80, 0.16);
 }
 .form-field textarea {
   min-height: 140px;

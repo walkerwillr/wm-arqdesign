@@ -10,8 +10,11 @@
 >
   <div class="container">
     <a href="/" class="brand" aria-label="{{ site.name }} — página inicial">
-      <span class="brand__mark">WM</span>
-      <span class="brand__sub">Arquitetura&nbsp;&amp;&nbsp;Design</span>
+      {% include "partials/logo-mark.njk" %}
+      <span class="brand__text">
+        <span class="brand__word"><strong>WM</strong>&nbsp;ArqDesign</span>
+        <span class="brand__sub">Arquitetura&nbsp;&amp;&nbsp;Design</span>
+      </span>
     </a>
 
     <nav class="nav" id="site-nav" aria-label="Navegação principal">
