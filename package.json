@@ -1,0 +1,16 @@
+{
+  "name": "wm-arqdesign",
+  "version": "1.0.0",
+  "description": "Site de portfólio e captação — WM Arquitetura & Design",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "dev": "eleventy --serve --quiet",
+    "build": "eleventy",
+    "clean": "node -e \"require('fs').rmSync('_site',{recursive:true,force:true})\""
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@11ty/eleventy-img": "^5.0.0"
+  }
+}
