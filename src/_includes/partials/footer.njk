@@ -1,0 +1,42 @@
+{% set waLink = "https://wa.me/" + site.whatsapp.number + "?text=" + (site.whatsapp.message | urlencode) %}
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="brand" aria-label="{{ site.name }}">
+          <span class="brand__mark">WM</span>
+          <span class="brand__sub">Arquitetura&nbsp;&amp;&nbsp;Design</span>
+        </a>
+        <p style="max-width: 30ch">{{ site.slogan }}</p>
+        <p style="margin-top: 1rem; font-size: 0.85rem">
+          Atuação: {{ site.regionsLabel }}.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="/">Início</a></li>
+          <li><a href="/portfolio/">Portfólio</a></li>
+          <li><a href="/sobre/">Sobre</a></li>
+          <li><a href="/contato/">Contato</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="{{ waLink }}" target="_blank" rel="noopener">WhatsApp · {{ site.whatsapp.display }}</a></li>
+          <li><a href="tel:{{ site.phone.tel }}">Telefone · {{ site.phone.display }}</a></li>
+          <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+          <li><a href="{{ site.instagram.url }}" target="_blank" rel="noopener">Instagram · {{ site.instagram.handle }}</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© {{ site.year }} {{ site.name }}. Todos os direitos reservados.</span>
+      <span>Projetos exibidos com autorização · imagens meramente ilustrativas.</span>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,98 @@
+---
+# valores padrão sobrescrevíveis via front-matter das páginas
+bodyClass: ""
+---
+<!doctype html>
+<html lang="{{ site.lang }}">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    {% set pageTitle = title or site.name %}
+    {% set fullTitle = (title + " — " + site.shortName) if title else (site.name + " — " + site.slogan) %}
+    {% set metaDesc = description or site.description %}
+    {% set canonical = (site.url + page.url) %}
+    {% set ogImg = (site.url + (ogImage or "/assets/img/og.jpg")) %}
+
+    <title>{{ fullTitle }}</title>
+    <meta name="description" content="{{ metaDesc }}" />
+    <link rel="canonical" href="{{ canonical }}" />
+    <meta name="theme-color" content="{{ site.themeColor }}" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="{{ site.name }}" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="{{ site.name }}" />
+    <meta property="og:locale" content="{{ site.locale }}" />
+    <meta property="og:title" content="{{ fullTitle }}" />
+    <meta property="og:description" content="{{ metaDesc }}" />
+    <meta property="og:url" content="{{ canonical }}" />
+    <meta property="og:image" content="{{ ogImg }}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{ fullTitle }}" />
+    <meta name="twitter:description" content="{{ metaDesc }}" />
+    <meta name="twitter:image" content="{{ ogImg }}" />
+
+    <!-- Ícones -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Fontes: preload das mais usadas -->
+    <link
+      rel="preload"
+      href="/assets/fonts/inter-400.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/assets/fonts/cormorant-garamond-600.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    <link rel="stylesheet" href="/assets/css/styles.css" />
+
+    <!-- Dados estruturados -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "@id": "{{ site.url }}/#business",
+        "name": "{{ site.name | safe }}",
+        "alternateName": "{{ site.shortName | safe }}",
+        "description": "{{ site.description | safe }}",
+        "url": "{{ site.url }}",
+        "image": "{{ site.url }}/assets/img/og.jpg",
+        "slogan": "{{ site.slogan }}",
+        "email": "{{ site.email }}",
+        "telephone": "{{ site.phone.tel }}",
+        "priceRange": "$$",
+        "knowsAbout": ["Arquitetura", "Design de Interiores", "Paisagismo", "Marcenaria planejada"],
+        "areaServed": [{% for r in site.regions %}{ "@type": "Place", "name": "{{ r }}" }{% if not loop.last %}, {% endif %}{% endfor %}],
+        "sameAs": ["{{ site.instagram.url }}"]
+      }
+    </script>
+  </head>
+  <body class="{{ bodyClass }}">
+    <a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+    {% include "partials/header.njk" %}
+
+    <main id="main">{{ content | safe }}</main>
+
+    {% include "partials/footer.njk" %}
+    {% include "partials/whatsapp.njk" %}
+
+    <script src="/assets/js/main.js" defer></script>
+  </body>
+</html>
