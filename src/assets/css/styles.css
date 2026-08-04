@@ -283,7 +283,7 @@ p {
   width: 34px;
   height: auto;
   flex: none;
-  color: var(--ink); /* traço preto acompanha via currentColor */
+  color: inherit; /* traço preto acompanha o contexto (header/footer) via currentColor */
   transition: color 0.4s var(--ease);
 }
 .brand__text {
@@ -312,6 +312,7 @@ p {
 .site-header:not(.is-solid):not(.is-open).over-hero .brand,
 .site-header:not(.is-solid):not(.is-open).over-hero .brand__icon,
 .site-header:not(.is-solid):not(.is-open).over-hero .nav__link,
+.site-header:not(.is-solid):not(.is-open).over-hero .nav__cta,
 .site-header:not(.is-solid):not(.is-open).over-hero .nav-toggle {
   color: #fff;
 }
@@ -1108,13 +1109,11 @@ p {
 /* ---- Reveal (animação sutil) ------------------------------------------ */
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
-  will-change: opacity, transform;
+  transition: opacity 0.8s var(--ease);
+  will-change: opacity;
 }
 .reveal.is-in {
   opacity: 1;
-  transform: none;
 }
 
 /* ---- Acessibilidade ---------------------------------------------------- */
