@@ -182,7 +182,7 @@ const meta = {
     order: 14,
     featured: false,
     title: "Studio Sig – Leblon",
-    category: "Maquetes",
+    category: "Residencial",
     location: "Leblon · Rio de Janeiro",
     tags: ["Studio", "Compacto", "Home office"],
     summary:
