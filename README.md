@@ -136,25 +136,52 @@ git push -u origin main
 3. **Save and Deploy**. A cada `git push` na branch `main` o Cloudflare
    reconstrói e publica automaticamente. A prévia fica em `https://<projeto>.pages.dev`.
 
-### 6.3 Domínio próprio
-1. No projeto do Pages → **Custom domains** → **Set up a domain** →
-   `wmarqdesign.com.br` (e `www`).
-2. Se o DNS estiver na Cloudflare, os registros são criados automaticamente.
-   Caso contrário, aponte no seu provedor:
-   - `CNAME www` → `<projeto>.pages.dev`
-   - domínio raiz: use o **CNAME flattening** da Cloudflare (registro `@` →
-     `<projeto>.pages.dev`).
-3. Atualize `url` em `src/_data/site.js` para o domínio final (usado em
-   canonical, sitemap e Open Graph).
+### 6.3 Domínio próprio (wmarqdesign.com.br)
+
+O domínio já foi comprado, mas **ainda não está com o DNS na Cloudflare** —
+por isso o painel do Pages pede uma transferência de DNS antes de liberar o
+"Custom domain". Passo a passo real, testado no painel deste projeto
+(`wm-arqdesign` → **Custom domains**):
+
+1. **Antes de tudo**, se o domínio tiver e-mail configurado (Gmail Workspace,
+   etc.), confira os registros **MX** atuais no seu registrador (ex:
+   Registro.br) e anote-os — a Cloudflare escaneia e importa os registros
+   existentes automaticamente, mas vale conferir depois que não sumiu nada.
+2. No projeto do Pages → aba **Custom domains** → **Set up a custom domain** →
+   digite `wmarqdesign.com.br` → **Continue**.
+3. O painel vai pedir **"Begin DNS transfer"** — clique para adicionar a zona
+   à Cloudflare (isso só prepara a conta; nada muda no domínio ainda).
+4. A Cloudflare mostra dois **nameservers** (algo como `xxx.ns.cloudflare.com`
+   e `yyy.ns.cloudflare.com`). Copie os dois.
+5. Entre no painel do registrador onde o domínio foi comprado (Registro.br,
+   se for `.com.br` gerenciado lá) e troque os nameservers do domínio para
+   os dois que a Cloudflare deu. **Essa etapa precisa ser feita por vocês** —
+   exige login no registrador, que a Claude não tem acesso.
+6. A propagação leva de alguns minutos até ~48h. Quando a Cloudflare detectar
+   a mudança, a zona fica ativa e o Custom Domain do Pages é liberado
+   automaticamente (volte em **Custom domains** e confirme).
+7. Repita o passo 2 para adicionar também `www.wmarqdesign.com.br`, se quiser
+   o site respondendo nos dois formatos.
+8. Depois que o domínio estiver ativo, atualize `url` em `src/_data/site.js`
+   para `https://wmarqdesign.com.br` (usado em canonical, sitemap e Open
+   Graph) e publique de novo.
 
 ## 7. Checklist antes de publicar
 
-- [ ] Preencher a access key do formulário (`site.js` → `form.accessKey`)
-- [ ] Confirmar usuário/nome do repositório (`site.js` → `repo`)
-- [ ] Revisar o texto da página **Sobre** (biografia do profissional)
-- [ ] Conferir número de WhatsApp/telefone e handle do Instagram
-- [ ] (Opcional) Cloudflare Turnstile
-- [ ] Apontar o domínio `wmarqdesign.com.br`
+- [x] Access key do formulário preenchida (`site.js` → `form.accessKey`)
+- [x] Repositório confirmado (`site.js` → `repo`)
+- [x] Biografia real do profissional (CV) aplicada na página Sobre
+- [x] WhatsApp/telefone/Instagram conferidos
+- [ ] **Domínio `wmarqdesign.com.br`** — comprado, falta trocar os nameservers
+      no registrador (ver seção 6.3 acima — depende de login que a Claude não tem)
+- [ ] **Facebook, LinkedIn e Behance** — ícones já prontos no rodapé
+      (`src/_includes/partials/footer.njk`), só faltam as URLs reais em
+      `site.js` → `social.facebook` / `social.linkedin` / `social.behance`
+- [ ] **Depoimentos da home são fictícios** (a pedido explícito, 5 depoimentos
+      inventados em `src/index.njk`) — publicar depoimentos fabricados como se
+      fossem reais é publicidade enganosa sob o CDC e o Código CONAR. Trocar
+      pelos depoimentos reais dos clientes assim que possível.
+- [ ] (Opcional) Cloudflare Turnstile no formulário de contato
 
 ---
 
