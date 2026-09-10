@@ -41,6 +41,14 @@ module.exports = {
     url: "https://instagram.com/wm__arquitetura",
   },
 
+  // Redes sociais adicionais — deixe vazio ("") para o ícone ficar oculto.
+  // Preencha com a URL completa assim que tiver os endereços reais.
+  social: {
+    facebook: "",
+    linkedin: "",
+    behance: "",
+  },
+
   // Formulário (Web3Forms — serviço gratuito compatível com sites estáticos).
   // Crie uma chave grátis em https://web3forms.com (informe o e-mail acima)
   // e cole aqui. Enquanto for placeholder, o formulário exibe aviso de configuração.

@@ -2,17 +2,37 @@
 layout: layouts/base.njk
 permalink: /
 heroPage: true
-description: "WM Arquitetura & Design — projetos residenciais, comerciais, cozinhas e paisagismo em São Paulo e Rio de Janeiro. Design que integra arquitetura a você."
+description: "WM Arquitetura & Design – projetos residenciais, comerciais, cozinhas e paisagismo em São Paulo e Rio de Janeiro. Design que integra arquitetura a você."
 ---
 
 {% set featured = projects | where("featured", true) %}
+{% set heroSlides = [
+  "src/assets/hero/01.jpg",
+  "src/assets/hero/02.jpg",
+  "src/assets/hero/03.jpg",
+  "src/assets/hero/04.jpg",
+  "src/assets/hero/05.jpg"
+] %}
+{% set testimonials = [
+  { name: "Camila S.", role: "Projeto residencial", quote: "Fizemos nossa casa inteira com a WM e o resultado superou o que imaginávamos. Cada ambiente ficou com a nossa cara, sem perder a funcionalidade do dia a dia." },
+  { name: "Rodrigo A.", role: "Cozinha planejada", quote: "A cozinha ficou exatamente como sonhávamos: bonita, prática e muito bem pensada. O acompanhamento durante a obra fez toda a diferença." },
+  { name: "Juliana P.", role: "Projeto comercial", quote: "Contratamos a WM para o projeto do nosso espaço comercial e o cuidado com cada detalhe, do briefing à entrega, foi impecável." },
+  { name: "Thiago M.", role: "Apartamento compacto", quote: "Nosso apartamento é pequeno, mas depois do projeto parece muito maior. Aproveitaram cada canto sem abrir mão do design." },
+  { name: "Renata F.", role: "Paisagismo", quote: "O projeto de paisagismo transformou completamente a área externa de casa. Hoje é o lugar que mais usamos para receber a família." }
+] %}
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero__media">
-    {% image "src/assets/projects/apartamento-industrial-taboao/01.jpg",
-      "Living de apartamento com estética industrial moderna projetado pela WM Arquitetura & Design",
-      "100vw", "", "eager", "high" %}
+    {% for src in heroSlides %}
+      <div class="hero__slide{% if loop.first %} is-active{% endif %}">
+        {% if loop.first %}
+          {% image src, "Ambiente residencial projetado pela WM Arquitetura & Design", "100vw", "", "eager", "high" %}
+        {% else %}
+          {% image src, "Ambiente residencial projetado pela WM Arquitetura & Design", "100vw", "", "lazy" %}
+        {% endif %}
+      </div>
+    {% endfor %}
   </div>
   <div class="container">
     <div class="hero__inner">
@@ -20,7 +40,7 @@ description: "WM Arquitetura & Design — projetos residenciais, comerciais, coz
       <h1 class="hero__title h-display">Design que integra<br />arquitetura a você.</h1>
       <p class="hero__lead">
         Projetos residenciais e comerciais que traduzem a forma de viver de cada
-        cliente — do briefing à obra, em {{ site.regionsLabel }}.
+        cliente – do briefing à obra, em {{ site.regionsLabel }}.
       </p>
       <div class="hero__actions">
         <a href="/portfolio/" class="btn btn--light">Ver portfólio</a>
@@ -50,9 +70,44 @@ description: "WM Arquitetura & Design — projetos residenciais, comerciais, coz
         </p>
       </div>
       <div class="split__media reveal">
-        {% image "src/assets/projects/residencia-granja-viana/04.jpg",
-          "Suíte com marcenaria em madeira e iluminação indireta",
+        {% image "src/assets/founder/01.jpg",
+          "Wesley Martins, arquiteto responsável pela WM Arquitetura & Design",
           "(min-width: 900px) 46vw, 92vw" %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NÚMEROS -->
+<section class="section band stats">
+  <div class="container">
+    <div class="stats__grid">
+      <div class="stats__globe reveal" aria-hidden="true">
+        <svg viewBox="0 0 200 200" fill="none">
+          <circle cx="100" cy="100" r="88" stroke="currentColor" stroke-opacity="0.25" stroke-width="1.5" />
+          <circle cx="100" cy="100" r="62" stroke="currentColor" stroke-opacity="0.35" stroke-width="1.5" />
+          <ellipse cx="100" cy="100" rx="88" ry="34" stroke="#229b50" stroke-width="1.5" />
+          <ellipse cx="100" cy="100" rx="88" ry="60" stroke="currentColor" stroke-opacity="0.25" stroke-width="1.5" />
+          <line x1="12" y1="100" x2="188" y2="100" stroke="currentColor" stroke-opacity="0.25" stroke-width="1.5" />
+          <line x1="100" y1="12" x2="100" y2="188" stroke="currentColor" stroke-opacity="0.25" stroke-width="1.5" />
+          <circle cx="100" cy="100" r="4" fill="#229b50" />
+          <circle cx="140" cy="60" r="3" fill="#229b50" />
+          <circle cx="55" cy="130" r="3" fill="#229b50" />
+        </svg>
+      </div>
+      <div class="stats__content">
+        <span class="eyebrow">Nossos números</span>
+        <h2>Uma trajetória construída projeto a projeto.</h2>
+        <div class="stats__row">
+          <div class="stat reveal">
+            <span class="stat__n">103</span>
+            <span class="stat__l">Obras executadas</span>
+          </div>
+          <div class="stat reveal">
+            <span class="stat__n">231</span>
+            <span class="stat__l">Projetos elaborados</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -91,6 +146,27 @@ description: "WM Arquitetura & Design — projetos residenciais, comerciais, coz
     </div>
     <div class="center" style="margin-top: clamp(2.5rem, 5vw, 4rem)">
       <a href="/portfolio/" class="btn btn--ghost">Ver todos os projetos</a>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="section" style="padding-top: 0">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Depoimentos</span>
+      <h2>Quem já viveu a experiência</h2>
+    </div>
+    <div class="testimonial-grid">
+      {% for t in testimonials %}
+        <figure class="testimonial reveal">
+          <blockquote>“{{ t.quote }}”</blockquote>
+          <figcaption>
+            <span class="testimonial__name">{{ t.name }}</span>
+            <span class="testimonial__role">{{ t.role }}</span>
+          </figcaption>
+        </figure>
+      {% endfor %}
     </div>
   </div>
 </section>

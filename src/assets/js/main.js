@@ -13,6 +13,22 @@
     window.addEventListener("scroll", onScroll, { passive: true });
   }
 
+  /* ---- Hero: carrossel de fundo (crossfade) --------------------------- */
+  var heroSlides = document.querySelectorAll(".hero__slide");
+  if (heroSlides.length > 1) {
+    var reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    if (!reduceMotion) {
+      var heroCurrent = 0;
+      setInterval(function () {
+        heroSlides[heroCurrent].classList.remove("is-active");
+        heroCurrent = (heroCurrent + 1) % heroSlides.length;
+        heroSlides[heroCurrent].classList.add("is-active");
+      }, 6000);
+    }
+  }
+
   /* ---- Menu mobile ---------------------------------------------------- */
   var toggle = document.getElementById("nav-toggle");
   var nav = document.getElementById("site-nav");

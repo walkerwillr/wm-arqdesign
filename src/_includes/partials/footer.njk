@@ -30,10 +30,42 @@
         <h4>Contato</h4>
         <ul>
           <li><a href="{{ waLink }}" target="_blank" rel="noopener">WhatsApp · {{ site.whatsapp.display }}</a></li>
-          <li><a href="tel:{{ site.phone.tel }}">Telefone · {{ site.phone.display }}</a></li>
           <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
           <li><a href="{{ site.instagram.url }}" target="_blank" rel="noopener">Instagram · {{ site.instagram.handle }}</a></li>
         </ul>
+
+        {#
+          Atalhos de redes sociais. Só o Instagram tem link confirmado por
+          enquanto — Facebook, LinkedIn e Behance ficam prontos aqui, comentados,
+          esperando os endereços reais (peça ao Wesley e preencha em site.js
+          em site.social.facebook / linkedin / behance).
+        #}
+        <div class="social-row">
+          <a
+            class="social-row__icon"
+            href="{{ site.instagram.url }}"
+            target="_blank"
+            rel="noopener"
+            aria-label="Instagram"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          {% if site.social.facebook %}
+          <a class="social-row__icon" href="{{ site.social.facebook }}" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 9h3V5h-3a4 4 0 0 0-4 4v2H7v4h3v7h4v-7h3l1-4h-4V9a1 1 0 0 1 1-1Z"/></svg>
+          </a>
+          {% endif %}
+          {% if site.social.linkedin %}
+          <a class="social-row__icon" href="{{ site.social.linkedin }}" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="3"/><line x1="8" y1="11" x2="8" y2="16"/><line x1="8" y1="8" x2="8" y2="8"/><path d="M12 16v-3a2 2 0 0 1 4 0v3"/></svg>
+          </a>
+          {% endif %}
+          {% if site.social.behance %}
+          <a class="social-row__icon" href="{{ site.social.behance }}" target="_blank" rel="noopener" aria-label="Behance">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h6M3 8v8h4.5a2.5 2.5 0 0 0 0-5H3m5.5-3a2.5 2.5 0 0 1 0 5"/><path d="M14 13h6.5a3.5 3.5 0 0 0-6.9-1M14 13a3.5 3.5 0 0 0 6.5 1.8"/></svg>
+          </a>
+          {% endif %}
+        </div>
       </div>
     </div>
 
