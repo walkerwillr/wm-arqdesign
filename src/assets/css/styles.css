@@ -737,24 +737,27 @@ p {
 }
 
 /* ---- Números / estatísticas --------------------------------------------- */
-.stats__grid {
-  display: grid;
-  gap: clamp(2rem, 5vw, 4rem);
+.stats {
+  position: relative;
+  overflow: hidden;
+}
+.stats__map-bg {
+  position: absolute;
+  inset: 0;
+  display: flex;
   align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 0;
 }
-@media (min-width: 800px) {
-  .stats__grid {
-    grid-template-columns: minmax(220px, 320px) 1fr;
-  }
-}
-.stats__globe {
-  color: rgba(255, 255, 255, 0.9);
-  max-width: 260px;
-  margin-inline: auto;
-}
-.stats__globe svg {
-  width: 100%;
+.stats__map-bg svg {
+  width: min(1200px, 150%);
   height: auto;
+}
+.stats__content {
+  position: relative;
+  z-index: 1;
+  max-width: 34rem;
 }
 .stats__row {
   display: flex;

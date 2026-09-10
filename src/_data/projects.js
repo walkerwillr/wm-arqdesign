@@ -11,7 +11,7 @@ const path = require("path");
 const meta = {
   "residencia-granja-viana": {
     order: 1,
-    featured: true,
+    featured: false,
     title: "Residência Granja Viana",
     category: "Residencial",
     location: "Granja Viana · SP",

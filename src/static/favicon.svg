@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 432 432" role="img" aria-label="WM ArqDesign">
-  <rect width="432" height="432" rx="76" fill="#1c1b19"/>
+  <rect width="432" height="432" rx="76" fill="#f7f5f1"/>
   <path
     d="M 66,300 L 66,80 C 100,120 150,148 216,148 C 282,148 332,120 366,80 L 366,300"
-    stroke="#ffffff"
+    stroke="#1c1b19"
     stroke-width="46"
     stroke-linecap="round"
     stroke-linejoin="round"

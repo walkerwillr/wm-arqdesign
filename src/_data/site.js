@@ -37,14 +37,14 @@ module.exports = {
   },
   email: "wm.arquitetura.urb@gmail.com",
   instagram: {
-    handle: "@wm__arquitetura",
-    url: "https://instagram.com/wm__arquitetura",
+    handle: "@well.mds",
+    url: "https://www.instagram.com/well.mds",
   },
 
   // Redes sociais adicionais — deixe vazio ("") para o ícone ficar oculto.
   // Preencha com a URL completa assim que tiver os endereços reais.
   social: {
-    facebook: "",
+    facebook: "https://www.facebook.com/share/1DDXU4QYiJ/",
     linkedin: "",
     behance: "",
   },
