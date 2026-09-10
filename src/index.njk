@@ -69,22 +69,10 @@ description: "WM Arquitetura & Design – projetos residenciais, comerciais, coz
           <a href="/sobre/" class="link-underline">Conheça a abordagem</a>
         </p>
       </div>
-      <div class="split__media reveal photo-rotator">
-        {% set founderPhotos = [
-          "src/assets/founder/01.jpg",
-          "src/assets/founder/02.jpg",
-          "src/assets/founder/03.jpg",
-          "src/assets/founder/04.jpg"
-        ] %}
-        {% for p in founderPhotos %}
-          <div class="photo-rotator__slide{% if loop.first %} is-active{% endif %}">
-            {% if loop.first %}
-              {% image p, "Wesley Martins, arquiteto responsável pela WM Arquitetura & Design", "(min-width: 900px) 46vw, 92vw" %}
-            {% else %}
-              {% image p, "Wesley Martins, arquiteto responsável pela WM Arquitetura & Design", "(min-width: 900px) 46vw, 92vw", "", "lazy" %}
-            {% endif %}
-          </div>
-        {% endfor %}
+      <div class="split__media reveal">
+        {% image "src/assets/founder/01.jpg",
+          "Wesley Martins, arquiteto responsável pela WM Arquitetura & Design",
+          "(min-width: 900px) 46vw, 92vw" %}
       </div>
     </div>
   </div>
