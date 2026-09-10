@@ -29,6 +29,24 @@
     }
   }
 
+  /* ---- Carrossel de fotos do profissional --------------------------- */
+  var rotators = document.querySelectorAll(".photo-rotator");
+  if (rotators.length) {
+    var rotReduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!rotReduce) {
+      rotators.forEach(function (rot) {
+        var slides = rot.querySelectorAll(".photo-rotator__slide");
+        if (slides.length < 2) return;
+        var idx = 0;
+        setInterval(function () {
+          slides[idx].classList.remove("is-active");
+          idx = (idx + 1) % slides.length;
+          slides[idx].classList.add("is-active");
+        }, 5000);
+      });
+    }
+  }
+
   /* ---- Menu mobile ---------------------------------------------------- */
   var toggle = document.getElementById("nav-toggle");
   var nav = document.getElementById("site-nav");
