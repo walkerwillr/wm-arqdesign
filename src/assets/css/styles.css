@@ -699,7 +699,7 @@ p {
 /* Carrossel de fotos (foto do profissional que alterna) */
 .photo-rotator {
   position: relative;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 4 / 5;
 }
 .photo-rotator__slide {
   position: absolute;
@@ -720,7 +720,7 @@ p {
   height: 100%;
   aspect-ratio: auto;
   object-fit: cover;
-  object-position: 50% 22%; /* enquadra pelo rosto (terço superior) */
+  object-position: 50% 8%; /* mantém o topo da cabeça no quadro */
 }
 
 /* ---- Métricas / etapas ------------------------------------------------- */
